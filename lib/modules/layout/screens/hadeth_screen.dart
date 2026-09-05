@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:islam_c20_online/modules/hadeth_details/screens/hadeth_details_screen.dart';
 
 import '../../../core/theme/app_colors.dart';
 
@@ -16,9 +17,7 @@ class _HadethScreenState extends State<HadethScreen> {
   List<Hadeth> ahadeth = [];
   @override
   void initState() {
-    
     readFiles();
-    
     super.initState();
   }
   @override
@@ -47,70 +46,77 @@ class _HadethScreenState extends State<HadethScreen> {
                 child: CarouselSlider.builder(
                   itemCount: ahadeth.length,
                   itemBuilder: (context, index, realIndex) {
-                    return Container(
-                      decoration: BoxDecoration(
-                        color: AppColors.gold,
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(16),
-                            child: Row(
-                              children: [
-                                Expanded(
-                                  child: Image.asset("assets/images/img_left_corner.png",color: AppColors.black,),
-                                ),
-                                Expanded(
-                                  flex: 2,
-                                  child: Center(
-                                    child: Text(
-                                      ahadeth[index].title,
-                                      style: TextStyle(
-                                        fontSize: 20,
-                                        color: AppColors.black,
-                                        fontWeight: FontWeight.w700,
+                    return InkWell(
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) {
+                          return HadethDetailsScreen(hadeth: ahadeth[index],);
+                        },));
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: AppColors.gold,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(16),
+                              child: Row(
+                                children: [
+                                  Expanded(
+                                    child: Image.asset("assets/images/img_left_corner.png",color: AppColors.black,),
+                                  ),
+                                  Expanded(
+                                    flex: 2,
+                                    child: Center(
+                                      child: Text(
+                                        ahadeth[index].title,
+                                        style: TextStyle(
+                                          fontSize: 20,
+                                          color: AppColors.black,
+                                          fontWeight: FontWeight.w700,
+                                        ),
                                       ),
                                     ),
                                   ),
-                                ),
-                                Expanded(
-                                  child: Image.asset("assets/images/img_right_corner.png",color: AppColors.black,),
-                                ),
-                              ],
-                            ),
-                          ),
-
-                          Expanded(
-                            child: Stack(
-                              clipBehavior: Clip.none,
-                              fit: StackFit.expand,
-                              children: [
-                                Column(
-                                  children: [
-                                    Flexible(child: Image.asset("assets/images/hadeth_card_bg.png",fit: BoxFit.cover,)),
-                                    Positioned(
-                                        right: -30,
-                                        left: -30,
-                                        child: Image.asset("assets/images/hadeth_card.png"))
-                                  ],
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.all(16),
-                                  child: Text(ahadeth[index].body,
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                      color: AppColors.black,
-                                    ),
-                                    textAlign: TextAlign.center,
-                                    textDirection: TextDirection.rtl,
+                                  Expanded(
+                                    child: Image.asset("assets/images/img_right_corner.png",color: AppColors.black,),
                                   ),
-                                )
-                              ],
+                                ],
+                              ),
                             ),
-                          )
 
-                        ],
+                            Expanded(
+                              child: Stack(
+                                clipBehavior: Clip.none,
+                                fit: StackFit.expand,
+                                children: [
+                                  Column(
+                                    children: [
+                                      Flexible(child: Image.asset("assets/images/hadeth_card_bg.png",fit: BoxFit.cover,)),
+                                      Positioned(
+                                          right: -30,
+                                          left: -30,
+                                          child: Image.asset("assets/images/hadeth_card.png"))
+                                    ],
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.all(16),
+                                    child: Text(ahadeth[index].body,
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        color: AppColors.black,
+                                      ),
+                                      textAlign: TextAlign.center,
+                                      textDirection: TextDirection.rtl,
+                                    ),
+                                  )
+                                ],
+                              ),
+                            )
+
+                          ],
+                        ),
                       ),
                     );
                   },
