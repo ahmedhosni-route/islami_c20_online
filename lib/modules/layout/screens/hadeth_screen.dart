@@ -16,7 +16,9 @@ class _HadethScreenState extends State<HadethScreen> {
   List<Hadeth> ahadeth = [];
   @override
   void initState() {
+    
     readFiles();
+    
     super.initState();
   }
   @override
