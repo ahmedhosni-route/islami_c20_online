@@ -374,4 +374,17 @@ class SuraModel {
     }
     return listOfSura;
   }
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is SuraModel &&
+          runtimeType == other.runtimeType &&
+          id == other.id &&
+          nameEn == other.nameEn &&
+          nameAr == other.nameAr &&
+          ayaNumber == other.ayaNumber;
+
+  @override
+  int get hashCode => Object.hash(id, nameEn, nameAr, ayaNumber);
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:islam_c20_online/modules/splash/screens/splash_screen.dart';
 
 void main() {
@@ -12,6 +13,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Islami",
+      theme: ThemeData(
+        fontFamily: GoogleFonts.tajawal().fontFamily
+      ),
       home: SplashScreen(),
     );
   }
