@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.islam_c20_online"
+    namespace = "com.example.islamiii"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
@@ -16,7 +16,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId = "com.example.islam_c20_online"
+        applicationId = "com.example.islamiii"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = flutter.minSdkVersion
