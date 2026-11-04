@@ -1,19 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:islam_c20_online/modules/splash/screens/splash_screen.dart';
+import 'views/onboarding_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const IslamiiiApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+const Color gold = Color(0xFFD6B46A);
+const Color dark = Color(0xFF171717);
+const Color blue = Color(0xFF07358D);
 
-  // This widget is the root of your application.
+class IslamiiiApp extends StatelessWidget {
+  const IslamiiiApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: SplashScreen(),
+      debugShowCheckedModeBanner: false,
+      title: 'Islamiii',
+      theme: ThemeData(
+        scaffoldBackgroundColor: dark,
+        useMaterial3: true,
+      ),
+      home: const OnboardingScreen(),
     );
   }
 }
-
